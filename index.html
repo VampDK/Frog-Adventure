@@ -57,6 +57,39 @@
     button:hover {
       background-color: #ffdd33;
     }
+
+    /* Mobile control buttons */
+    #mobileControls {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      z-index: 20;
+    }
+
+    .mobile-button {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #555;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* Hide buttons on larger screens */
+    @media (min-width: 768px) {
+      #mobileControls {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -74,6 +107,37 @@
     <button onclick="restartGame()">Restart</button>
   </div>
 
+  <!-- Mobile Controls -->
+  <div id="mobileControls">
+    <div class="mobile-button" id="btnLeft">◀</div>
+    <div class="mobile-button" id="btnJump">⬆</div>
+    <div class="mobile-button" id="btnRight">▶</div>
+  </div>
+
   <script src="index.js"></script>
+  <script>
+    // Mobile touch control mapping
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    const btnJump = document.getElementById('btnJump');
+
+    btnLeft.addEventListener('touchstart', () => {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+    });
+    btnLeft.addEventListener('touchend', () => {
+      window.dispatchEvent(new KeyboardEvent('keyup', { key: 'ArrowLeft' }));
+    });
+
+    btnRight.addEventListener('touchstart', () => {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+    });
+    btnRight.addEventListener('touchend', () => {
+      window.dispatchEvent(new KeyboardEvent('keyup', { key: 'ArrowRight' }));
+    });
+
+    btnJump.addEventListener('touchstart', () => {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+    });
+  </script>
 </body>
 </html>
