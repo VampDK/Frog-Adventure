@@ -107,12 +107,13 @@
     <button onclick="restartGame()">Restart</button>
   </div>
 
-  <!-- Mobile Controls -->
-  <div id="mobileControls">
-    <div class="mobile-button" id="btnLeft">◀</div>
-    <div class="mobile-button" id="btnJump">⬆</div>
-    <div class="mobile-button" id="btnRight">▶</div>
-  </div>
+ <!-- Mobile Controls -->
+<div id="mobileControls">
+  <button ontouchstart="simulateKey('ArrowLeft')" ontouchend="simulateKey('ArrowLeft', false)">⬅️</button>
+  <button ontouchstart="simulateKey('ArrowUp')" ontouchend="simulateKey('ArrowUp', false)">⬆️</button>
+  <button ontouchstart="simulateKey('ArrowRight')" ontouchend="simulateKey('ArrowRight', false)">➡️</button>
+</div>
+
 
   <script src="index.js"></script>
   <script>

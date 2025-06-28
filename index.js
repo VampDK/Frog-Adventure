@@ -526,6 +526,12 @@ function animate() {
   c.drawImage(trophyImg, trophy.x, trophy.y, 64, 64);
   drawScore();
 }
+function simulateKey(key, down = true) {
+  const eventType = down ? 'keydown' : 'keyup';
+  const event = new KeyboardEvent(eventType, { key });
+  window.dispatchEvent(event);
+}
+
 
 addEventListener('keydown', e => {
   if (startScreen) {

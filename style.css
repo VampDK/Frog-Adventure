@@ -1,4 +1,32 @@
-canvas {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+#mobileControls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 15;
+}
+
+/* Hide buttons on devices that support mouse/keyboard */
+@media (hover: hover) and (pointer: fine) {
+  #mobileControls {
+    display: none;
+  }
+}
+
+#mobileControls button {
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #ffcc00;
+  color: #333;
+  font-family: 'Fredoka One', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+#mobileControls button:active {
+  background: #ffdd33;
 }
